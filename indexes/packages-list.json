@@ -56264,40 +56264,41 @@
     }
   },
   "cocoindex-code": {
-    "path": "uncategorized/cocoindex-code.json",
-    "category": "uncategorized"
+    "category": "uncategorized",
+    "path": "uncategorized/cocoindex-code.json"
   },
   "@skillboss/mcp-server": {
-    "path": "other-tools-and-integrations/skillboss-mcp.json",
     "category": "other-tools-and-integrations",
-    "tools": {},
-    "validated": false
+    "path": "other-tools-and-integrations/skillboss-mcp.json",
+    "validated": false,
+    "tools": {}
   },
   "commune-mcp": {
-    "path": "communication/commune-mcp.json",
-    "category": "communication"
+    "category": "communication",
+    "path": "communication/commune-mcp.json"
   },
   "mcp-database-connector-lite": {
-    "path": "databases/mcp-database-connector-lite.json",
-    "category": "databases"
+    "category": "databases",
+    "path": "databases/mcp-database-connector-lite.json"
   },
   "@toolsdk-remote/opendirectories-business-data": {
-    "path": "data-platforms/toolsdk-remote-opendirectories-business-data.json",
     "category": "data-platforms",
-    "tools": {},
-    "validated": false
+    "path": "data-platforms/toolsdk-remote-opendirectories-business-data.json",
+    "validated": false,
+    "tools": {}
   },
   "mcp-api-bridge-lite": {
-    "path": "developer-tools/mcp-api-bridge-lite.json",
-    "category": "developer-tools"
+    "category": "developer-tools",
+    "path": "developer-tools/mcp-api-bridge-lite.json"
   },
   "lightcms": {
-    "path": "developer-tools/lightcms.json",
-    "category": "developer-tools"
+    "category": "developer-tools",
+    "path": "developer-tools/lightcms.json"
   },
   "octav-api-mcp": {
-    "path": "finance-fintech/octav-api-mcp.json",
     "category": "finance-fintech",
+    "path": "finance-fintech/octav-api-mcp.json",
+    "validated": true,
     "tools": {
       "octav_get_portfolio": {
         "name": "octav_get_portfolio",
@@ -56355,24 +56356,24 @@
         "name": "octav_agent_portfolio",
         "description": "Get full portfolio using x402 payment protocol. For AI agents with automatic payment. Returns wallet + DeFi positions. Costs paid via HTTP 402 payment protocol."
       }
-    },
-    "validated": true
+    }
   },
   "@agentskb/cli": {
-    "path": "knowledge-memory/agentskb-mcp.json",
     "category": "knowledge-memory",
-    "tools": {},
-    "validated": false
+    "path": "knowledge-memory/agentskb-mcp.json",
+    "validated": false,
+    "tools": {}
   },
   "bgpt-mcp": {
-    "path": "search-data-extraction/bgpt-mcp.json",
     "category": "search-data-extraction",
-    "tools": {},
-    "validated": false
+    "path": "search-data-extraction/bgpt-mcp.json",
+    "validated": false,
+    "tools": {}
   },
   "@wavestreamer/mcp": {
-    "path": "other-tools-and-integrations/wavestreamer.json",
     "category": "other-tools-and-integrations",
+    "path": "other-tools-and-integrations/wavestreamer.json",
+    "validated": true,
     "tools": {
       "register_agent": {
         "name": "register_agent",
@@ -56442,12 +56443,12 @@
         "name": "list_webhook_events",
         "description": "List all valid event types you can subscribe to with webhooks."
       }
-    },
-    "validated": true
+    }
   },
   "@taskade/mcp-server": {
-    "path": "other-tools-and-integrations/taskade-mcp-server.json",
     "category": "other-tools-and-integrations",
+    "path": "other-tools-and-integrations/taskade-mcp-server.json",
+    "validated": true,
     "tools": {
       "workspaceCreateProject": {
         "name": "workspaceCreateProject",
@@ -56533,7 +56534,12 @@
         "name": "folderProjectsGet",
         "description": "Get all projects in a team, or in the home team of a workspace."
       }
-    },
-    "validated": true
+    }
+  },
+  "defi-mcp": {
+    "path": "finance-fintech/defi-mcp.json",
+    "category": "finance-fintech",
+    "tools": {},
+    "validated": false
   }
 }

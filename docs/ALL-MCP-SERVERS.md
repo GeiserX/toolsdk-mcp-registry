@@ -1,6 +1,6 @@
 # 📚 All MCP Servers
 
-> **Complete directory of all 4533+ MCP servers in the ToolSDK Registry**
+> **Complete directory of all 4534+ MCP servers in the ToolSDK Registry**
 >
 > Looking for production-ready servers only? See the [main README](../README.md) for validated servers.
 
@@ -8,9 +8,9 @@
 
 ## 📊 Statistics
 
-- 📦 **Total Servers**: 4533
+- 📦 **Total Servers**: 4534
 - ✅ **Validated & Tested**: 812
-- ⚙️ **Community Contributed**: 3721
+- ⚙️ **Community Contributed**: 3722
 
 ---
 
@@ -2711,7 +2711,7 @@ New mcp tool: Exa-code is a context tool for coding   (node)
 
 
 <a id="finance-fintech"></a>
-### Finance & Fintech <small>(269 servers)</small>
+### Finance & Fintech <small>(270 servers)</small>
 
 > Work with financial data, market info, and trading platforms using AI tools.
 
@@ -2837,6 +2837,7 @@ New mcp tool: Exa-code is a context tool for coding   (node)
 - [❌ cryptocurrency-technical-analysis](https://github.com/lumif-ai/mcp-ta-tool): Provides real-time cryptocurrency technical analysis through FastMCP, calculating 12 and 26-period EMAs for Binance trading pairs using MongoDB-stored OHLCV data and Server-Sent Events.  (python) 
 - [❌ cryptopanic](https://github.com/kukapay/cryptopanic-mcp-server): Integrates with CryptoPanic to provide real-time cryptocurrency news, analysis, and video content with configurable pagination for financial analysis and investment decision support.  (python) 
 - [❌ debank](https://github.com/demcp/demcp-debank-mcp): Provides a bridge to blockchain and DeFi data across multiple chains, enabling access to information about protocols, tokens, pools, user assets, activities, and wallet operations  (node) 
+- [❌ defi-mcp](https://github.com/OzorOwn/defi-mcp): DeFi & crypto MCP server with 12 tools: token prices, gas estimates, DEX pool analytics, ENS resolution, trending tokens, DeFi protocol TVL, yield opportunities, and historical price data. Works with Claude Desktop and Cursor.  (node) 
 - [❌ deriv](https://github.com/raju-deriv/mcp-deriv-api-server): Integrates with Deriv API to enable trading operations like retrieving symbols and balances for automated trading systems and market analysis tools.  (python) 
 - [❌ dexscreener](https://github.com/opensvm/dexscreener-mcp-server): Integrates with decentralized exchanges across multiple blockchains to provide real-time crypto market data, focusing on Solana memecoin markets.  (node) 
 - [❌ dhan-trading](https://github.com/mayankthole/dhan-mcp-trades): Control your Dhan trading account through Claude using simple conversation. Check your account balance, view current holdings and positions, get live market prices, and place various orders (market, limit, stop-loss, bracket) - all by simply asking your LLM  (python) 
