@@ -136,6 +136,7 @@
       "kit-mcp-server",
       "mcp-google-calendar",
       "@browserstack/mcp-server",
+      "@cabin/agent",
       "@coolver/home-assistant-mcp",
       "tailscale-status",
       "@toolsdk-remote/ai-smithery-yuna0x0-hackmd-mcp",

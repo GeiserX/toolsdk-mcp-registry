@@ -1,6 +1,6 @@
 # 📚 All MCP Servers
 
-> **Complete directory of all 4541+ MCP servers in the ToolSDK Registry**
+> **Complete directory of all 4542+ MCP servers in the ToolSDK Registry**
 >
 > Looking for production-ready servers only? See the [main README](../README.md) for validated servers.
 
@@ -8,9 +8,9 @@
 
 ## 📊 Statistics
 
-- 📦 **Total Servers**: 4541
+- 📦 **Total Servers**: 4542
 - ✅ **Validated & Tested**: 813
-- ⚙️ **Community Contributed**: 3728
+- ⚙️ **Community Contributed**: 3729
 
 ---
 
@@ -55,7 +55,7 @@
 
 
 <a id="uncategorized"></a>
-### Uncategorized <small>(558 servers)</small>
+### Uncategorized <small>(559 servers)</small>
 
 > Tools that haven’t been sorted into a category yet. AI will categorize it later.
 
@@ -202,6 +202,7 @@ New mcp tool: Exa-code is a context tool for coding   (1 tools) (node)
 - [❌ @anyproto/anytype-mcp](https://github.com/anyproto/anytype-mcp): Converts any OpenAPI 3.0/3.1 specification into callable tools by automatically generating schemas from REST API endpoints, handling authentication via environment variables, and supporting file uploads through multipart form-data while filtering out destructive operations.  (node) 
 - [❌ @atlassian-dc-mcp/confluence](https://github.com/b1ff/atlassian-dc-mcp): MCP server for Atlassian Confluence Data Center - access and manage content  (node) 
 - [❌ @brightdata/mcp](https://github.com/brightdata/brightdata-mcp): Integrates with Bright Data's web scraping infrastructure to provide real-time access to public web data through specialized tools for search engine scraping, webpage extraction, and structured data retrieval from popular websites.  (node) 
+- [❌ @cabin/agent](https://github.com/yolo-maxi/cabin): AI-first travel booking with natural language. Search flights with crypto micropayments.  (node) 
 - [❌ @cablate/mcp-google-calendar](https://github.com/cablate/mcp-google-calendar): Integrates with Google Calendar API to enable creating, updating, and retrieving calendar events for seamless scheduling and event management.  (node) 
 - [❌ @cashfreepayments/cashfree-mcp](https://github.com/cashfree/cashfree-mcp): Cashfree MCP server for cashfree docs and APIs  (node) 
 - [❌ @coolver/home-assistant-mcp](https://github.com/Coolver/home-assistant-mcp): Vibecode your Home Assistant setup from your IDE: automations, dashboards, themes and configs  (node) 

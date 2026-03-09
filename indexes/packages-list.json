@@ -56567,20 +56567,21 @@
     "tools": {}
   },
   "agentic-ads": {
-    "path": "uncategorized/agentic-ads.json",
     "category": "uncategorized",
-    "tools": {},
-    "validated": false
+    "path": "uncategorized/agentic-ads.json",
+    "validated": false,
+    "tools": {}
   },
   "proofbets": {
-    "path": "finance-fintech/proofbets.json",
     "category": "finance-fintech",
-    "tools": {},
-    "validated": false
+    "path": "finance-fintech/proofbets.json",
+    "validated": false,
+    "tools": {}
   },
   "obsd-launchpad-mcp": {
-    "path": "finance-fintech/obsd-launchpad.json",
     "category": "finance-fintech",
+    "path": "finance-fintech/obsd-launchpad.json",
+    "validated": true,
     "tools": {
       "get_platform_stats": {
         "name": "get_platform_stats",
@@ -56650,7 +56651,12 @@
         "name": "analyze_wallet",
         "description": "FREE — Analyze any wallet on Base. Shows ETH balance and checks holdings of popular Base tokens. No wallet needed."
       }
-    },
-    "validated": true
+    }
+  },
+  "@cabin/agent": {
+    "path": "uncategorized/cabin-flights.json",
+    "category": "uncategorized",
+    "tools": {},
+    "validated": false
   }
 }
