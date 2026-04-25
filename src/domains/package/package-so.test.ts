@@ -164,7 +164,7 @@ describe("PackageSO", () => {
       // Assert
       expect(tools).toEqual(mockTools);
       expect(tools).toHaveLength(2);
-      expect(mockExecutor.listTools).toHaveBeenCalledWith(packageName);
+      expect(mockExecutor.listTools).toHaveBeenCalledWith(packageName, undefined);
       expect(mockExecutor.listTools).toHaveBeenCalledTimes(1);
     });
 
