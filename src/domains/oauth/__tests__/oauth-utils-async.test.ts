@@ -29,12 +29,14 @@ describe("oauth-utils async functions", () => {
       // First call: probe returns 401 with WWW-Authenticate
       mockFetch.mockResolvedValueOnce({
         status: 401,
-        headers: new Map([
-          [
-            "www-authenticate",
-            'Bearer resource_metadata="https://mcp.example.com/.well-known/oauth-protected-resource"',
-          ],
-        ]) as any,
+        headers: {
+          get: (name: string) => {
+            if (name === "www-authenticate") {
+              return 'Bearer resource_metadata="https://mcp.example.com/.well-known/oauth-protected-resource"';
+            }
+            return null;
+          },
+        },
       });
 
       // Second call: fetch the metadata URL

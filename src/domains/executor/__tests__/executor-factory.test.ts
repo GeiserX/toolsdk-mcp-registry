@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import type { MCPSandboxProvider } from "../../sandbox/sandbox-types";
 
 // Mock the environment module
 vi.mock("../../../shared/config/environment", () => ({
@@ -74,7 +75,7 @@ describe("ExecutorFactory", () => {
 
     it("should fall back to env provider when override is invalid", () => {
       vi.mocked(getSandboxProvider).mockReturnValue("LOCAL");
-      const executor = ExecutorFactory.create("INVALID" as any);
+      const executor = ExecutorFactory.create("INVALID" as MCPSandboxProvider);
 
       expect(getSandboxProvider).toHaveBeenCalled();
       expect(LocalExecutor).toHaveBeenCalled();

@@ -95,7 +95,9 @@ describe("response-util", () => {
   describe("createRouteResponses", () => {
     it("should create route responses with only success response by default", () => {
       // Use a simple zod-like schema mock
-      const mockSchema = { _type: "string" } as any;
+      const mockSchema = { _type: "string" } as unknown as Parameters<
+        typeof createRouteResponses
+      >[0];
       const result = createRouteResponses(mockSchema);
 
       expect(result[200]).toBeDefined();
@@ -107,7 +109,9 @@ describe("response-util", () => {
     });
 
     it("should include error responses when includeErrorResponses is true", () => {
-      const mockSchema = { _type: "string" } as any;
+      const mockSchema = { _type: "string" } as unknown as Parameters<
+        typeof createRouteResponses
+      >[0];
       const result = createRouteResponses(mockSchema, {
         includeErrorResponses: true,
       });
@@ -122,7 +126,9 @@ describe("response-util", () => {
     });
 
     it("should use custom success description", () => {
-      const mockSchema = { _type: "string" } as any;
+      const mockSchema = { _type: "string" } as unknown as Parameters<
+        typeof createRouteResponses
+      >[0];
       const result = createRouteResponses(mockSchema, {
         successDescription: "Custom Success",
       });
@@ -131,7 +137,9 @@ describe("response-util", () => {
     });
 
     it("should use default options when none provided", () => {
-      const mockSchema = { _type: "string" } as any;
+      const mockSchema = { _type: "string" } as unknown as Parameters<
+        typeof createRouteResponses
+      >[0];
       const result = createRouteResponses(mockSchema);
 
       expect(result[200].description).toBe("Success");

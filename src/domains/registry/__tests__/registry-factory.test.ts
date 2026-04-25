@@ -3,6 +3,7 @@ import type { PackageRepository } from "../../package/package-repository";
 import { FederatedRegistryProvider } from "../providers/federated-registry-provider";
 import { LocalRegistryProvider } from "../providers/local-registry-provider";
 import { OfficialRegistryProvider } from "../providers/official-registry-provider";
+import type { RegistryProviderType } from "../registry-factory";
 import {
   getRegistryProvider,
   initRegistryFactory,
@@ -83,7 +84,9 @@ describe("registry-factory", () => {
 
     it("should throw for unknown provider type", () => {
       initRegistryFactory(mockRepository);
-      expect(() => getRegistryProvider("UNKNOWN" as any)).toThrow("Unknown provider type: UNKNOWN");
+      expect(() => getRegistryProvider("UNKNOWN" as RegistryProviderType)).toThrow(
+        "Unknown provider type: UNKNOWN",
+      );
     });
   });
 

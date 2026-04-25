@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import type { SandboxClient } from "../sandbox-types";
 
 // Mock the SandboxFactory
 vi.mock("../sandbox-factory", () => ({
@@ -10,7 +11,7 @@ vi.mock("../sandbox-factory", () => ({
 import { SandboxFactory } from "../sandbox-factory";
 import { SandboxPoolSO } from "../sandbox-pool-so";
 
-function createMockSandboxClient() {
+function createMockSandboxClient(): SandboxClient {
   return {
     initialize: vi.fn().mockResolvedValue(undefined),
     executeTool: vi.fn().mockResolvedValue({ success: true }),
@@ -24,10 +25,9 @@ describe("SandboxPoolSO", () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    // Access singleton and reset it for testing by using a fresh instance
-    // We need to reset the static instance to avoid test pollution
-    // Using any to access private static field for testing
-    (SandboxPoolSO as any).instance = undefined;
+    // Reset the static singleton instance to avoid test pollution
+    // biome-ignore lint/suspicious/noExplicitAny: accessing private static for test reset
+    (SandboxPoolSO as Record<string, unknown>).instance = undefined;
     pool = SandboxPoolSO.getInstance();
   });
 
@@ -46,7 +46,7 @@ describe("SandboxPoolSO", () => {
   describe("acquire", () => {
     it("should create a new sandbox client", async () => {
       const mockClient = createMockSandboxClient();
-      vi.mocked(SandboxFactory.create).mockReturnValue(mockClient as any);
+      vi.mocked(SandboxFactory.create).mockReturnValue(mockClient);
 
       const client = await pool.acquire("node", "SANDOCK");
 
@@ -56,7 +56,7 @@ describe("SandboxPoolSO", () => {
 
     it("should reuse existing sandbox for same runtime and provider", async () => {
       const mockClient = createMockSandboxClient();
-      vi.mocked(SandboxFactory.create).mockReturnValue(mockClient as any);
+      vi.mocked(SandboxFactory.create).mockReturnValue(mockClient);
 
       const client1 = await pool.acquire("node", "SANDOCK");
       const client2 = await pool.acquire("node", "SANDOCK");
@@ -69,8 +69,8 @@ describe("SandboxPoolSO", () => {
       const nodeClient = createMockSandboxClient();
       const pythonClient = createMockSandboxClient();
       vi.mocked(SandboxFactory.create)
-        .mockReturnValueOnce(nodeClient as any)
-        .mockReturnValueOnce(pythonClient as any);
+        .mockReturnValueOnce(nodeClient)
+        .mockReturnValueOnce(pythonClient);
 
       const client1 = await pool.acquire("node", "SANDOCK");
       const client2 = await pool.acquire("python", "SANDOCK");
@@ -84,7 +84,7 @@ describe("SandboxPoolSO", () => {
   describe("release", () => {
     it("should decrease ref count and destroy when zero", async () => {
       const mockClient = createMockSandboxClient();
-      vi.mocked(SandboxFactory.create).mockReturnValue(mockClient as any);
+      vi.mocked(SandboxFactory.create).mockReturnValue(mockClient);
 
       await pool.acquire("node", "SANDOCK");
       await pool.release("node", "SANDOCK");
@@ -94,7 +94,7 @@ describe("SandboxPoolSO", () => {
 
     it("should not destroy when ref count is still positive", async () => {
       const mockClient = createMockSandboxClient();
-      vi.mocked(SandboxFactory.create).mockReturnValue(mockClient as any);
+      vi.mocked(SandboxFactory.create).mockReturnValue(mockClient);
 
       await pool.acquire("node", "SANDOCK");
       await pool.acquire("node", "SANDOCK"); // refCount = 2
@@ -113,7 +113,7 @@ describe("SandboxPoolSO", () => {
     it("should handle destroy error gracefully", async () => {
       const mockClient = createMockSandboxClient();
       mockClient.destroy.mockRejectedValue(new Error("Destroy failed"));
-      vi.mocked(SandboxFactory.create).mockReturnValue(mockClient as any);
+      vi.mocked(SandboxFactory.create).mockReturnValue(mockClient);
       const errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
 
       await pool.acquire("node", "SANDOCK");
@@ -132,7 +132,7 @@ describe("SandboxPoolSO", () => {
 
     it("should return status with active sandboxes", async () => {
       const mockClient = createMockSandboxClient();
-      vi.mocked(SandboxFactory.create).mockReturnValue(mockClient as any);
+      vi.mocked(SandboxFactory.create).mockReturnValue(mockClient);
 
       await pool.acquire("node", "SANDOCK");
       const status = pool.getPoolStatus();
@@ -147,8 +147,8 @@ describe("SandboxPoolSO", () => {
       const mockClient1 = createMockSandboxClient();
       const mockClient2 = createMockSandboxClient();
       vi.mocked(SandboxFactory.create)
-        .mockReturnValueOnce(mockClient1 as any)
-        .mockReturnValueOnce(mockClient2 as any);
+        .mockReturnValueOnce(mockClient1)
+        .mockReturnValueOnce(mockClient2);
 
       await pool.acquire("node", "SANDOCK");
       await pool.acquire("python", "SANDOCK");
@@ -162,7 +162,7 @@ describe("SandboxPoolSO", () => {
     it("should handle cleanup errors gracefully", async () => {
       const mockClient = createMockSandboxClient();
       mockClient.destroy.mockRejectedValue(new Error("Cleanup failed"));
-      vi.mocked(SandboxFactory.create).mockReturnValue(mockClient as any);
+      vi.mocked(SandboxFactory.create).mockReturnValue(mockClient);
       const errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
 
       await pool.acquire("node", "SANDOCK");
@@ -174,7 +174,7 @@ describe("SandboxPoolSO", () => {
 
     it("should clear pool after cleanup", async () => {
       const mockClient = createMockSandboxClient();
-      vi.mocked(SandboxFactory.create).mockReturnValue(mockClient as any);
+      vi.mocked(SandboxFactory.create).mockReturnValue(mockClient);
 
       await pool.acquire("node", "SANDOCK");
       await pool.cleanup();
