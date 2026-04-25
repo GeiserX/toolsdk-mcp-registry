@@ -11,8 +11,6 @@ import {
 } from "../environment";
 
 describe("environment", () => {
-  const originalEnv = process.env;
-
   beforeEach(() => {
     vi.stubEnv("MCP_SANDBOX_PROVIDER", "");
     vi.stubEnv("DAYTONA_API_KEY", "");

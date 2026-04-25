@@ -39,35 +39,35 @@ describe("ExecutorFactory", () => {
   describe("create", () => {
     it("should create LocalExecutor when provider is LOCAL", () => {
       vi.mocked(getSandboxProvider).mockReturnValue("LOCAL");
-      const executor = ExecutorFactory.create();
+      ExecutorFactory.create();
 
       expect(LocalExecutor).toHaveBeenCalled();
     });
 
     it("should create SandboxExecutor when provider is DAYTONA", () => {
       vi.mocked(getSandboxProvider).mockReturnValue("DAYTONA");
-      const executor = ExecutorFactory.create();
+      ExecutorFactory.create();
 
       expect(SandboxExecutor).toHaveBeenCalledWith("DAYTONA");
     });
 
     it("should create SandboxExecutor when provider is SANDOCK", () => {
       vi.mocked(getSandboxProvider).mockReturnValue("SANDOCK");
-      const executor = ExecutorFactory.create();
+      ExecutorFactory.create();
 
       expect(SandboxExecutor).toHaveBeenCalledWith("SANDOCK");
     });
 
     it("should create SandboxExecutor when provider is E2B", () => {
       vi.mocked(getSandboxProvider).mockReturnValue("E2B");
-      const executor = ExecutorFactory.create();
+      ExecutorFactory.create();
 
       expect(SandboxExecutor).toHaveBeenCalledWith("E2B");
     });
 
     it("should use override provider when valid", () => {
       vi.mocked(getSandboxProvider).mockReturnValue("LOCAL");
-      const executor = ExecutorFactory.create("DAYTONA");
+      ExecutorFactory.create("DAYTONA");
 
       expect(SandboxExecutor).toHaveBeenCalledWith("DAYTONA");
       expect(getSandboxProvider).not.toHaveBeenCalled();
@@ -75,7 +75,7 @@ describe("ExecutorFactory", () => {
 
     it("should fall back to env provider when override is invalid", () => {
       vi.mocked(getSandboxProvider).mockReturnValue("LOCAL");
-      const executor = ExecutorFactory.create("INVALID" as MCPSandboxProvider);
+      ExecutorFactory.create("INVALID" as MCPSandboxProvider);
 
       expect(getSandboxProvider).toHaveBeenCalled();
       expect(LocalExecutor).toHaveBeenCalled();
@@ -83,7 +83,7 @@ describe("ExecutorFactory", () => {
 
     it("should use override LOCAL provider", () => {
       vi.mocked(getSandboxProvider).mockReturnValue("DAYTONA");
-      const executor = ExecutorFactory.create("LOCAL");
+      ExecutorFactory.create("LOCAL");
 
       expect(LocalExecutor).toHaveBeenCalled();
     });

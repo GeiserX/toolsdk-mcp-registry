@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 import { extractPackageName } from "../validation-util";
 
 // Only test the synchronous pure functions that don't require network/filesystem access

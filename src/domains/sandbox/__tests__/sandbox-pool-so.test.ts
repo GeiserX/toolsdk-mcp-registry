@@ -26,7 +26,6 @@ describe("SandboxPoolSO", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     // Reset the static singleton instance to avoid test pollution
-    // biome-ignore lint/suspicious/noExplicitAny: accessing private static for test reset
     (SandboxPoolSO as Record<string, unknown>).instance = undefined;
     pool = SandboxPoolSO.getInstance();
   });
