@@ -111,7 +111,7 @@ try {
 
 // Basic structural check before Zod
 if (typeof raw !== "object" || raw === null || Array.isArray(raw)) {
-  fail("JSON root must be an object, got " + (Array.isArray(raw) ? "array" : typeof raw));
+  fail(`JSON root must be an object, got ${Array.isArray(raw) ? "array" : typeof raw}`);
 }
 
 console.log("✅ Valid JSON");
