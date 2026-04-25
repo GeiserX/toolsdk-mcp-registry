@@ -37,7 +37,8 @@
       "!**/storybook-static",
       "!**/prisma-client",
       "!**/public",
-      "!**/projects/bika/packages/bika-zapier/lib"
+      "!**/projects/bika/packages/bika-zapier/lib",
+      "!**/.omc"
     ]
   }
 }

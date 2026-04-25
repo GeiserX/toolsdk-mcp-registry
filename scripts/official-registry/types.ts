@@ -9,7 +9,7 @@ export interface RegistryResponse {
 
 export interface RegistryServerItem {
   server: RegistryServer;
-  _meta?: any;
+  _meta?: Record<string, Record<string, unknown>>;
 }
 
 export interface RegistryServer {

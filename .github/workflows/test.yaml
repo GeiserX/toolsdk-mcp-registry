@@ -4,6 +4,9 @@ env:
   GITHUB_BUILD_NUMBER: ${{ github.run_number }}
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     types: [opened, synchronize, reopened]
     branches:

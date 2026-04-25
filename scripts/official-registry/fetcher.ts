@@ -20,11 +20,12 @@ export async function fetchOfficialRegistry(
   let response: Response;
   try {
     response = await fetch(url.toString(), { signal: controller.signal });
-  } catch (err: any) {
-    if (err.name === "AbortError") {
+  } catch (err: unknown) {
+    const error = err as Error;
+    if (error.name === "AbortError") {
       throw new Error("Network request timed out after 10 seconds");
     }
-    throw new Error(`Network error: ${err.message || err}`);
+    throw new Error(`Network error: ${error.message || err}`);
   } finally {
     clearTimeout(timeout);
   }
@@ -65,7 +66,9 @@ export async function fetchOfficialServers(maxServers = 1000): Promise<RegistryS
             // Filter out non-latest versions
             // The API returns _meta object where keys are UUIDs and values contain isLatest
             if (!item._meta) return true;
-            return !Object.values(item._meta).some((meta: any) => meta?.isLatest === false);
+            return !Object.values(item._meta).some(
+              (meta: Record<string, unknown>) => meta?.isLatest === false,
+            );
           })
           .map((s) => s.server);
         allServers.push(...extractedServers);
